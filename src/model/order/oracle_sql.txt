@@ -1,0 +1,5 @@
+	String sql_insertS = "insert into order_single values ((select nvl(max(single_number),0)+1 from order_single),?,(select sysdate from dual))";
+	String sql_insertD = "insert into order_detail values((select nvl(max(detail_number),0)+1 from order_detail),?,?,?)";
+	String sql_selectAll = "select * from order_single order by single_number desc";
+	String sql_selectSearch ="select * from order_single where single_number=?"; 
+	String sql_delete = "delete from order_single where single_number=?";
