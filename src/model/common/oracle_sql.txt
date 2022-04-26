@@ -1,0 +1,4 @@
+	static String driver="oracle.jdbc.driver.OracleDriver";
+	static String url="jdbc:oracle:thin:@localhost:1521:xe";
+	static String user="ryu";
+	static String password="1234";
