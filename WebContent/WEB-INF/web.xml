@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	version="4.0">
+	<!-- 모든 .do 에 대하여 front controller 로 향하도록 함 -->
+	<servlet>
+		<servlet-name>bfc</servlet-name>
+		<servlet-class>controller.board.BoardFrontController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>bfc</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>mfc</servlet-name>
+		<servlet-class>controller.customer.CustomerFrontController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>mfc</servlet-name>
+		<url-pattern>*.me</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>pfc</servlet-name>
+		<servlet-class>controller.product.ProductFrontController</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>pfc</servlet-name>
+		<url-pattern>*.pd</url-pattern>
+	</servlet-mapping>
+
+	<!-- init parameter 로 encoding 을 UTF-8 로 설정 -->
+	<context-param>
+		<param-name>encoding</param-name>
+		<param-value>UTF-8</param-value>
+	</context-param>
+
+
+	<display-name>Apache-Axis</display-name>
+	<servlet>
+		<display-name>Apache-Axis Servlet</display-name>
+		<servlet-name>AxisServlet</servlet-name>
+		<servlet-class>org.apache.axis.transport.http.AxisServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<display-name>Axis Admin Servlet</display-name>
+		<servlet-name>AdminServlet</servlet-name>
+		<servlet-class>org.apache.axis.transport.http.AdminServlet</servlet-class>
+		<load-on-startup>100</load-on-startup>
+	</servlet>
+	<servlet>
+		<display-name>SOAPMonitorService</display-name>
+		<servlet-name>SOAPMonitorService</servlet-name>
+		<servlet-class>org.apache.axis.monitor.SOAPMonitorService</servlet-class>
+		<init-param>
+			<param-name>SOAPMonitorPort</param-name>
+			<param-value>5101</param-value>
+		</init-param>
+		<load-on-startup>100</load-on-startup>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AxisServlet</servlet-name>
+		<url-pattern>/servlet/AxisServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AxisServlet</servlet-name>
+		<url-pattern>*.jws</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AxisServlet</servlet-name>
+		<url-pattern>/services/*</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>SOAPMonitorService</servlet-name>
+		<url-pattern>/SOAPMonitor</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdminServlet</servlet-name>
+		<url-pattern>/servlet/AdminServlet</url-pattern>
+	</servlet-mapping>
+	<mime-mapping>
+		<extension>wsdl</extension>
+		<mime-type>text/xml</mime-type>
+	</mime-mapping>
+</web-app>
