@@ -1,0 +1,9 @@
+  String sql_insert = "insert into customer values(?,?,?,?,?,?)";
+  String sql_id_check = "select customer_id from customer where customer_id=?";
+  String sql_selectOne="select * from customer where customer_id=?";
+  String sql_update = "update customer set customer_password=?, customer_name=?, phone_number=?, ZIP_code=?, detailed_address=? where customer_id=?";
+  String sql_delete = "delete from customer where customer_id=? and customer_password=?";
+  String sql_login_check = "select * from customer where customer_id=?";
+  String sql_valid_pw = "select * from customer where customer_id=? and phone_number=?";
+  String sql_valid_id = "select * from customer where customer_name=? and phone_number=?";
+  String sql_updateTemp = "update customer set customer_password=? where customer_id=?";
