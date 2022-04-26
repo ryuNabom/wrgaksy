@@ -1,0 +1,6 @@
+  String sql_inclusion = "select product_set_number from (select * from product_set where soup_check='미포함' order by dbms_random.value) where rownum<=1";
+  String sql_exclusion = "select product_set_number from (select * from product_set where soup_check='포함' order by dbms_random.value) where rownum<=1";
+  String sql_insert = "insert into order_subscription values ((select nvl(max(subscription_number),0)+1 from order_subscription),?,?,(select sysdate from dual),?,(select sysdate + (interval '1' DAY) from dual),(select sysdate + (interval '31' DAY) from dual),?)";
+	String sql_selectOne = "select * from order_subscription where customer_id=?";
+	String sql_selectProductSet = "select * from product_set where product_set_number=?";
+	String sql_selectIsExist = "select * from order_subscription where customer_id=? and ((select to_char(sysdate + (interval '1' DAY), 'yyyy-mm-dd') from dual) between ? and ?)";
