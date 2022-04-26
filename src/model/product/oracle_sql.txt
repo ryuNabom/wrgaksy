@@ -1,0 +1,8 @@
+  String sql_insert = "insert into product values((select nvl(max(product_number),0)+1 from product),?,?,?,?,?)";
+  String sql_delete = "delete from product";
+  String sql_selectAll = "select * from product";
+  String sql_selectOne = "select * from product where product_number=?";
+  String sql_selectMain = "select * from product where product_type='메인'";
+  String sql_selectSide = "select * from product where product_type='반찬'";
+  String sql_selectSoup = "select * from product where product_type='국'";
+  String sql_selectSearch = "select * from product where product_name like '%'||?||'%' or details like '%'||?||'%' or product_type like '%'||?||'%'";
